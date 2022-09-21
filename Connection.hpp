@@ -6,7 +6,7 @@
 class Connection : public Redis
 {
   private:
-    serverapi *server;
+    serverapi* server;
 
   public:
     Connection(int port, std::string ip);

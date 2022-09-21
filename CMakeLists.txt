@@ -6,6 +6,12 @@ project(myredisclient)
 # add the executable
 add_executable(${PROJECT_NAME} test.cpp)
 
+add_subdirectory(hiredis)
 
-set(CMAKE_CXX_STANDARD 11)
-set(CMAKE_CXX_STANDARD_REQUIRED True)
+target_include_directories(${PROJECT_NAME} PUBLIC hiredis/)
+
+target_link_directories(${PROJECT_NAME} 
+    PRIVATE hiredis/)
+
+target_link_libraries(${PROJECT_NAME} PRIVATE hiredis)
+
