@@ -5,11 +5,16 @@
 #include <string>
 class Connection : public Redis
 {
-  private:
-    serverapi* server;
+  protected:
+    serverapi *server=NULL;
 
   public:
-    Connection(int port, std::string ip);
+    void Connect(int port, std::string ip);
+    serverapi *get_server()
+    {
+        return server;
+    }
 };
+
 
 #endif

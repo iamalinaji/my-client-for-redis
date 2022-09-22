@@ -1,9 +1,10 @@
 #include "Connection.hpp"
+#include <hiredis/hiredis.h>
 #include <cstring>
 using namespace std;
-Connection::Connection(int port, string ip)
+void Connection::Connect(int port, string ip)
 {
     char ip_arr[ip.length()+1];
     strcpy(ip_arr,ip.c_str());
-    server=(redisContext*)redisConnect(ip_arr,port);
+    this->server=(redisContext*)redisConnect(ip_arr,port);
 }

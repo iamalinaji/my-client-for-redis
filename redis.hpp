@@ -10,7 +10,7 @@ class Redis
   public:
     DataBase *Select_DataBase(int db_index = 0)
     {
-      return &databases[db_index-1];
+        return &databases[db_index - 1];
     }
     double num_of_all_keys();
     void flush_all();
