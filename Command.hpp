@@ -1,8 +1,9 @@
 #ifndef COMMAND_HPP
 #define COMMAND_HPP
-#include "Connection.hpp"
+#include "redis.hpp"
+#include "server.hpp"
 #include "DataBase.hpp"
-template <typename K, typename T> class Command : public Connection
+template <typename K, typename T> class Command : public Redis
 {
   private:
     DataBase *DB_pt;

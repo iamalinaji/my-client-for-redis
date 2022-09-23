@@ -3,10 +3,10 @@
 #include "redis.hpp"
 #include "server.hpp"
 #include <string>
-class Connection : public Redis
+class Connection 
 {
-  protected:
-    serverapi *server=NULL;
+  private:
+    serverapi *server = NULL;
 
   public:
     void Connect(int port, std::string ip);
@@ -14,7 +14,7 @@ class Connection : public Redis
     {
         return server;
     }
-};
 
+};
 
 #endif

@@ -3,7 +3,7 @@ cmake_minimum_required(VERSION 3.10)
 # set the project name
 project(myredisclient)
 
-set(sources redis.hpp server.hpp Connection.hpp Connection.cpp DataBase.cpp DataBase.hpp Command.hpp Command.cpp)
+set(sources redis.hpp server.hpp Connection.hpp Connection.cpp DataBase.cpp DataBase.hpp Command.hpp)
 
 add_library(mylib ${sources})
 

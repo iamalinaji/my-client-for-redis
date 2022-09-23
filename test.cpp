@@ -1,3 +1,4 @@
+#include "Connection.hpp"
 #include "Command.hpp"
 #include <hiredis/hiredis.h>
 using namespace std;
