@@ -9,7 +9,11 @@ template <typename K, typename T> class Command : public Connection
     serverapi *server;
 
   public:
-    Command(serverapi* server_);
+    Command(serverapi *server_)
+    {
+        this->DB_pt = this->Select_DataBase();
+        this->server = server_;
+    }
     bool exists(K);
     void del_key(K);
     T insert(K, T);
