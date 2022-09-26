@@ -1,20 +1,19 @@
 #ifndef CONNECTION_HPP
 #define CONNECTION_HPP
-#include "redis.hpp"
 #include "server.hpp"
 #include <string>
-class Connection 
+class Connection
 {
   private:
-    serverapi *server = NULL;
+    ServerApi *server = NULL;
 
   public:
+    std::string send_command_and_show_reply(std::string redis_valid_command);
     void Connect(int port, std::string ip);
-    serverapi *get_server()
+    ServerApi *get_server()
     {
         return server;
     }
-
 };
 
 #endif

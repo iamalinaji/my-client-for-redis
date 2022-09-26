@@ -1,13 +1,20 @@
-#include "Connection.hpp"
-#include "Command.hpp"
-#include <hiredis/hiredis.h>
+#include "runcommand.hpp"
 using namespace std;
 
 int main()
 {
-    Connection *c = NULL;
-    c = new Connection;
-    c->Connect(6379, "127.0.0.1");
-    Command<string, string> mycommand(c->get_server());
+    Connection *connection = NULL;
+    string input,command;
+    CommandParse CommandType;
+    int condition;
+    while (getline(cin, input))
+    {
+        stringstream ss(input);
+        ss >> command;
+        CommandType = parse_command(command);
+        condition=CommandType;
+        if(condition<5)
+            run_db_type_command(connection,CommandType,ss);
+    }
     return 0;
 }

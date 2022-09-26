@@ -3,11 +3,12 @@ cmake_minimum_required(VERSION 3.10)
 # set the project name
 project(myredisclient)
 
-set(sources redis.hpp server.hpp Connection.hpp Connection.cpp DataBase.cpp DataBase.hpp Command.hpp)
+set(sources redis.hpp server.hpp Connection.hpp Connection.cpp DataBase.cpp DataBase.hpp Command.hpp parse.hpp
+    runcommand.cpp)
 
 add_library(mylib ${sources})
 
-add_executable(${PROJECT_NAME} test.cpp Connection.cpp)
+add_executable(${PROJECT_NAME} test.cpp )
 
 add_subdirectory(hiredis)
 

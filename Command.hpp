@@ -1,20 +1,22 @@
 #ifndef COMMAND_HPP
 #define COMMAND_HPP
+#include "DataBase.hpp"
 #include "redis.hpp"
 #include "server.hpp"
-#include "DataBase.hpp"
 template <typename K, typename T> class Command : public Redis
 {
   private:
     DataBase *DB_pt;
-    serverapi *server;
+    ServerApi *server;
 
   public:
-    Command(serverapi *server_)
+    Command(ServerApi *server_)
     {
         this->DB_pt = this->Select_DataBase();
         this->server = server_;
     }
+    void flushdb(Connection* c){DB_pt->flush_db(c);}
+    void num_of_keys(Connection *c){DB_pt->show_num_of_keys_in_db(c);}
     bool exists(K);
     void del_key(K);
     T insert(K, T);
