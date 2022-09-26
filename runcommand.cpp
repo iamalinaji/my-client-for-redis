@@ -25,6 +25,4 @@ void run_db_type_command(Connection *connection, CommandParse type, std::strings
     case CommandParse::num_of_keys_db:
         commandtype_var->num_of_keys(connection);
         break;
-    case CommandParse::num_of_all_keys:
-    }
 }
