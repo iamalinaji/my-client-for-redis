@@ -17,8 +17,9 @@ class Redis
     void flush_all(Connection *c)
     {
       for (int i=0;i<databases.size();i++){
-        databases[i].flush_db(c);
+        databases[i].flush_db(c,0);
       }
+      c->send_command_and_show_reply("flushall");
     }
 };
 

@@ -8,7 +8,7 @@ class DataBase
     double num_of_keys = 0;
 
   public:
-    void flush_db(Connection *c);
+    void flush_db(Connection *c,int send_command_to_db=1);
     void show_num_of_keys_in_db(Connection *c);
 };
 
