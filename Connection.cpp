@@ -30,7 +30,7 @@ void Connection::Connect(int port, string ip)
     this->server = (ServerApi *)redisConnect(ip_arr, port);
     show_state_of_connection(this->server);
 }
-string Connection::send_command_and_show_reply(string redis_valid_command)
+string Connection::send_command_and_show_reply(string redis_valid_command, bool server_reply_to_be_shown)
 {
     char format[redis_valid_command.length() + 1];
     strcpy(format, redis_valid_command.c_str());
@@ -41,12 +41,14 @@ string Connection::send_command_and_show_reply(string redis_valid_command)
     if (reply->type == REDIS_REPLY_INTEGER)
     {
         ss << reply->integer;
-        std::cout << reply->integer << std::endl;
+        if (server_reply_to_be_shown)
+            std::cout << reply->integer << std::endl;
     }
     else
     {
         ss << reply->str;
-        std::cout << reply->str << std::endl;
+        if (server_reply_to_be_shown)
+            std::cout << reply->str << std::endl;
     }
     ss >> replysentence;
     return replysentence;

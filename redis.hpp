@@ -9,18 +9,9 @@ class Redis
     std::vector<DataBase> databases = std::vector<DataBase>(64);
 
   public:
-    DataBase *Select_DataBase(int db_index = 0)
-    {
-        return &databases[db_index - 1];
-    }
-    double num_of_all_keys();
-    void flush_all(Connection *c)
-    {
-      for (int i=0;i<databases.size();i++){
-        databases[i].flush_db(c,0);
-      }
-      c->send_command_and_show_reply("flushall");
-    }
+    DataBase *Select_DataBase(int db_index = 0);
+    double num_of_all_keys(Connection *c);
+    void flush_all(Connection *c);
 };
 
 #endif
