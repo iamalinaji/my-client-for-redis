@@ -12,7 +12,7 @@ int main()
         stringstream ss(input);
         ss >> command;
         CommandType = parse_command(command);
-        condition=CommandType;
+        condition=int(CommandType);
         if(condition<5)
             run_db_type_command(connection,CommandType,ss);
     }
