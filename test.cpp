@@ -18,7 +18,7 @@ int main()
             connection=new Connection;
             connection->Connect(6379,"127.0.0.1");
         }
-        else if (condition < 5)
+        else if (condition < 6)
             run_db_type_command(connection, CommandType, ss);
     }
     return 0;

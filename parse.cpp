@@ -11,4 +11,6 @@ CommandParse parse_command(std::string input)
         return CommandParse::flush_all;
     else if (input == "num_of_keys_in_db")
         return CommandParse::num_of_keys_db;
+    else if (input == "num_of_all_keys")
+        return CommandParse::num_of_all_keys;
 }
