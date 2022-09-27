@@ -1,5 +1,5 @@
 #include "redis.hpp"
-DataBase* Redis::Select_DataBase(int db_index = 0)
+DataBase* Redis::Select_DataBase(int db_index )
 {
     return &databases[db_index - 1];
 }
