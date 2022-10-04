@@ -1,4 +1,4 @@
-#include "Connection.hpp"
+#include "Connection.h"
 #include <cstring>
 #include <hiredis/hiredis.h>
 #include <iostream>

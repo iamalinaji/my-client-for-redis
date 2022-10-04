@@ -1,8 +1,8 @@
 #ifndef COMMAND_HPP
 #define COMMAND_HPP
-#include "DataBase.hpp"
-#include "redis.hpp"
-#include "server.hpp"
+#include "DataBase.h"
+#include "Redis.h"
+#include "Server.h"
 template <typename K, typename T> class Command : public Redis
 {
   private:

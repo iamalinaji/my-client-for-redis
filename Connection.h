@@ -1,6 +1,6 @@
-#ifndef CONNECTION_HPP
-#define CONNECTION_HPP
-#include "server.hpp"
+#ifndef CONNECTION_H
+#define CONNECTION_H
+#include "Server.h"
 #include <string>
 class Connection
 {

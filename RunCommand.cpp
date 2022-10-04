@@ -1,4 +1,4 @@
-#include "runcommand.hpp"
+#include "RunCommand.h"
 void run_db_type_command(Connection *connection, CommandParse type, std::stringstream &ss)
 {
     Command<int, int> *commandtype_var;

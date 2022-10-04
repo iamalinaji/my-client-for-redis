@@ -1,8 +1,8 @@
-#ifndef RUNCOMMAND_HPP
-#define RUNCOMMAND_HPP
-#include "Command.hpp"
-#include "Connection.hpp"
-#include "parse.hpp"
+#ifndef RUNCOMMAND_H
+#define RUNCOMMAND_H
+#include "Command.h"
+#include "Connection.h"
+#include "Parse.h"
 #include <iostream>
 #include <sstream>
 

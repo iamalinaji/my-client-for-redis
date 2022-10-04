@@ -1,7 +1,7 @@
-#ifndef REDIS_HPP
-#define REDIS_HPP
-#include "Connection.hpp"
-#include "DataBase.hpp"
+#ifndef REDIS_H
+#define REDIS_H
+#include "Connection.h"
+#include "DataBase.h"
 #include <vector>
 class Redis
 {

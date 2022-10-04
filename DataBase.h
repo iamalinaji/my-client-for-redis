@@ -1,6 +1,6 @@
-#ifndef DATABASE_HPP
-#define DATABASE_HPP
-#include "Connection.hpp"
+#ifndef DATABASE_H
+#define DATABASE_H
+#include "Connection.h"
 #include <string>
 class DataBase
 {

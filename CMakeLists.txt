@@ -5,18 +5,18 @@ project(myredisclient)
 
 set(sources 
     test.cpp
-    redis.hpp 
-    redis.cpp
-    server.hpp 
-    Connection.hpp 
+    Redis.h
+    Redis.cpp
+    Server.h
+    Connection.h 
     Connection.cpp 
     DataBase.cpp 
-    DataBase.hpp 
-    Command.hpp 
-    parse.hpp
-    parse.cpp 
-    runcommand.cpp 
-    runcommand.hpp )
+    DataBase.h 
+    Command.h 
+    Parse.h
+    Parse.cpp 
+    RunCommand.cpp 
+    RunCommand.h )
 
 add_executable(${PROJECT_NAME} ${sources} )
 

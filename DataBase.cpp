@@ -1,5 +1,5 @@
 #include <iostream>
-#include "DataBase.hpp"
+#include "DataBase.h"
 #include "hiredis/hiredis.h"
 void DataBase::flush_db(Connection *c,int send_command_to_db)
 {

@@ -1,5 +1,5 @@
-#ifndef PARSE_HPP
-#define PARSE_HPP
+#ifndef PARSE_H
+#define PARSE_H
 #include <string>
 enum class CommandParse
 {
