@@ -13,8 +13,6 @@ set(sources
     DataBase.cpp 
     DataBase.h 
     Command.h 
-    Parse.h
-    Parse.cpp 
     RunCommand.cpp 
     RunCommand.h )
 

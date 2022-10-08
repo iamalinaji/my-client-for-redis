@@ -2,9 +2,10 @@
 
 option=$1
 ninja=1
+DIR=build/
 case $option in 
 	"release")
-		if [ -d "/build" ]; then
+		if [ ! -d "$DIR" ]; then
 			mkdir build
 		fi
 		cd build
@@ -12,11 +13,11 @@ case $option in
 		make
 		;;
 	"debug")
-		if [ -d "/build" ]; then
+		if [ ! -d "$DIR" ]; then
 			mkdir build
 		fi
 		cd build
-		cmake --DCMAKE_BUILD_TYPE=Debug .. -S .. -B .
+		cmake -DCMAKE_BUILD_TYPE=Debug -S .. -B .
 		make
 		;;
 	"clean")
@@ -24,7 +25,7 @@ case $option in
 		rm -rf CMakefiles CMakeCache.txt
 		;;
 	"ninja")
-		if [ -d "/build" ]; then
+		if [ ! -d "$DIR" ]; then
 			mkdir build
 		fi
 		cd build
