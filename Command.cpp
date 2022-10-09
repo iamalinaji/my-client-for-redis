@@ -38,7 +38,7 @@ template <typename K, typename T> bool Command<K, T>::select_db(Connection *c, i
         if (index >= databases)
             return false;
     }
-    c->send_command_and_show_reply(("Select " + std::to_string(index)));
+    c->send_command_and_show_reply(("Select " + std::to_string(index)),false);
     this->current_db_index=index;
     return true;
 }
