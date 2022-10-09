@@ -5,7 +5,7 @@
 #include <sstream>
 #include <string>
 using namespace std;
-void show_state_of_connection(ServerApi *server)
+void ShowStateofConnection(ServerApi *server)
 {
     if (server == NULL || server->err)
     {
@@ -28,9 +28,9 @@ void Connection::Connect(int port, string ip)
     char ip_arr[ip.length() + 1];
     strcpy(ip_arr, ip.c_str());
     this->server = (ServerApi *)redisConnect(ip_arr, port);
-    show_state_of_connection(this->server);
+    ShowStateofConnection(this->server);
 }
-string Connection::send_command_and_show_reply(string redis_valid_command, bool server_reply_to_be_shown)
+string Connection::SendCommand(string redis_valid_command, bool server_reply_to_be_shown)
 {
     char format[redis_valid_command.length() + 1];
     strcpy(format, redis_valid_command.c_str());

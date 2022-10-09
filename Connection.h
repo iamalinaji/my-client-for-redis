@@ -8,7 +8,7 @@ class Connection
     ServerApi *server = NULL;
 
   public:
-    std::string send_command_and_show_reply(std::string redis_valid_command,bool server_reply_to_be_shown=true);
+    std::string SendCommand(std::string redis_valid_command,bool server_reply_to_be_shown=true);
     void Connect(int port, std::string ip);
     ServerApi *get_server()
     {

@@ -9,11 +9,11 @@ int main()
     connection = new Connection;
     connection->Connect(6379, "127.0.0.1");
     Command<int, int> cmd;
-    cmd.flushdb(connection);
-    cmd.flushall(connection);
-    double keys = cmd.num_of_keys_db(connection);
+    cmd.FlushDB(connection);
+    cmd.FlushAll(connection);
+    double keys = cmd.NumofKeysDB(connection);
     std::string reply;
-    double all_keys=cmd.num_of_all_keys(connection);
-    cmd.select_db(connection,63);
+    double all_keys=cmd.NumofAllKeys(connection);
+    cmd.SelectDB(connection,63);
     return 0;
 }
