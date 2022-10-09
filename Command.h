@@ -3,23 +3,19 @@
 #include "DataBase.h"
 #include "Redis.h"
 #include "Server.h"
-template <typename K, typename T> class Command : public Redis
+template <typename K, typename T> class Command
 {
   private:
-    DataBase *DB_pt;
-    ServerApi *server;
-
   public:
-    Command(ServerApi *server_)
-    {
-        this->DB_pt = this->Select_DataBase();
-        this->server = server_;
-    }
-    void flushdb(Connection* c){DB_pt->flush_db(c);}
-    void num_of_keys(Connection *c){DB_pt->show_num_of_keys_in_db(c);}
+    void flushdb(Connection *c);
+    void flushall(Connection *c);
+    double num_of_keys_db(Connection *c);
+    double num_of_all_keys(Connection *c);
+    bool select_db(Connection *c);
     bool exists(K);
     void del_key(K);
     T insert(K, T);
     T get_key(K);
 };
+#include "Command.cpp"
 #endif

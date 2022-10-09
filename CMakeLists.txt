@@ -13,8 +13,7 @@ set(sources
     DataBase.cpp 
     DataBase.h 
     Command.h 
-    RunCommand.cpp 
-    RunCommand.h )
+)
 
 add_executable(${PROJECT_NAME} ${sources} )
 
