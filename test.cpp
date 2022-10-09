@@ -13,6 +13,7 @@ int main()
     cmd.flushall(connection);
     double keys = cmd.num_of_keys_db(connection);
     std::string reply;
-    reply=connection->send_command_and_show_reply("CONFIG GET SERVER");
+    double all_keys=cmd.num_of_all_keys(connection);
+    cmd.select_db(connection,63);
     return 0;
 }

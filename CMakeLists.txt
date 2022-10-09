@@ -5,13 +5,9 @@ project(myredisclient)
 
 set(sources 
     test.cpp
-    Redis.h
-    Redis.cpp
     Server.h
     Connection.h 
     Connection.cpp 
-    DataBase.cpp 
-    DataBase.h 
     Command.h 
 )
 

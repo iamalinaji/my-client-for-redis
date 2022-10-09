@@ -44,6 +44,12 @@ string Connection::send_command_and_show_reply(string redis_valid_command, bool 
         if (server_reply_to_be_shown)
             std::cout << reply->integer << std::endl;
     }
+    else if(reply->type == REDIS_REPLY_ARRAY)
+    {
+        ss<<reply->element[1]->str;
+        if (server_reply_to_be_shown)
+            std::cout << reply->element[1]->str << std::endl;
+    }
     else
     {
         ss << reply->str;
