@@ -1,8 +1,9 @@
 #include "Command.h"
 #include "Connection.h"
+#include <gtest/gtest.h>
 using namespace std;
 
-int main()
+TEST(myclienttest,connection)
 {
     Connection *connection = NULL;
     string input, command;
@@ -15,5 +16,9 @@ int main()
     std::string reply;
     double all_keys=cmd.NumofAllKeys(connection);
     cmd.SelectDB(connection,63);
-    return 0;
+}
+
+int main(int argc, char **argv) {
+  ::testing::InitGoogleTest(&argc, argv);
+  return RUN_ALL_TESTS();
 }
