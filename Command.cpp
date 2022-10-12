@@ -1,6 +1,7 @@
 #include "Command.h"
 #include "iostream"
 #include "string"
+#include <sstream>
 
 template <typename K, typename T> void Command<K, T>::FlushDB(Connection *c)
 {
@@ -38,7 +39,30 @@ template <typename K, typename T> bool Command<K, T>::SelectDB(Connection *c, in
         if (index >= databases)
             return false;
     }
-    c->SendCommand(("Select " + std::to_string(index)),false);
-    this->current_db_index=index;
+    c->SendCommand(("Select " + std::to_string(index)), false);
+    this->current_db_index = index;
     return true;
+}
+
+template <typename K, typename T> bool Command<K, T>::Insert(Connection *c, K mykey, T myval)
+{
+    if (c == NULL)
+        return false;
+    std::string key = std::to_string(mykey);
+    std::string val = std::to_string(myval);
+    std::string set = "SET";
+    c->SendCommand(set + key + val, false);
+    return true;
+}
+
+template <typename K, typename T> T Command<K, T>::GetKey(Connection *c, K mykey)
+{
+    std::string get = "GET";
+    std::string reply = c->SendCommand(get + std::to_string(mykey), false);
+    return reply;
+}
+template <typename T> void MyFunc(T val)
+{
+    std::stringstream ss;
+    ss >> val;
 }

@@ -1,7 +1,7 @@
 #ifndef COMMAND_HPP
 #define COMMAND_HPP
-#include "Server.h"
 #include "Connection.h"
+#include "Server.h"
 template <typename K, typename T> class Command
 {
   private:
@@ -13,10 +13,10 @@ template <typename K, typename T> class Command
     double NumofKeysDB(Connection *c);
     double NumofAllKeys(Connection *c);
     bool SelectDB(Connection *c, int index, bool check_index = true);
-    bool exists(K);
-    void del_key(K);
-    T insert(K, T);
-    T get_key(K);
+    bool Exists(K);
+    void DelKey(K);
+    bool Insert(Connection *c, K, T);
+    T GetKey(Connection *c, K);
 };
 #include "Command.cpp"
 #endif
