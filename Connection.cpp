@@ -59,3 +59,9 @@ string Connection::SendCommand(string redis_valid_command, bool server_reply_to_
     ss >> replysentence;
     return replysentence;
 }
+
+void Connection::Disconnect()
+{
+    redisFree(this->server);
+    this->server=NULL;
+}
