@@ -48,17 +48,16 @@ template <typename K, typename T> bool Command<K, T>::Insert(Connection *c, K my
 {
     if (c == NULL)
         return false;
-    std::string key = std::to_string(mykey);
-    std::string val = std::to_string(myval);
+    std::string result = mykey +" "+ myval;
     std::string set = "SET";
-    c->SendCommand(set + key + val, false);
+    c->SendCommand(set + " " + result, false);
     return true;
 }
 
 template <typename K, typename T> T Command<K, T>::GetKey(Connection *c, K mykey)
 {
     std::string get = "GET";
-    std::string reply = c->SendCommand(get + std::to_string(mykey), false);
+    std::string reply = c->SendCommand(get +" "+ mykey, false);
     return reply;
 }
 template <typename T> void MyFunc(T val)

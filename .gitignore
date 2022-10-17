@@ -49,3 +49,4 @@ _deps
 build
 glfw/
 .vscode/
+.vscode
