@@ -27,5 +27,20 @@ target_link_libraries(${PROJECT_NAME} PUBLIC mylib PUBLIC gtest_main)
 include(GoogleTest)
 gtest_discover_tests(${PROJECT_NAME})
 
+if(TEST_COVERAGE)
+    set(CMAKE_MODULE_PATH ${PROJECT_SOURCE_DIR}/cmake)
+    include(CodeCoverage)
+    append_coverage_compiler_flags()
+    set(CMAKE_CXX_FLAGS  "${CMAKE_CXX_FLAGS} -O0")
+    set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -O0")
+
+
+endif()
+
+
+
+
+
+
 
 
