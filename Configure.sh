@@ -32,5 +32,21 @@ case $option in
 		cmake -S .. -G Ninja
 		ninja
 		;;
+	"testcoverage")
+		if [ ! -d "$DIR" ]; then
+			mkdir build
+		fi
+		cd build
+		cmake -S .. -DTEST_COVERAGE=ON -DCMAKE_BUILD_TYPE=Debug -B .
+		make
+		;;
+	"test")
+		if [ ! -d "$DIR" ]; then
+			mkdir build
+		fi
+		cd build
+		cmake -S .. -DTEST=ON -G Ninja
+		ninja
+		;;
 esac
 

@@ -1,4 +1,5 @@
 cmake_minimum_required(VERSION 3.10)
+set(CMAKE_CXX_STANDARD 14)
 
 # set the project name
 project(myredisclient)
@@ -10,31 +11,38 @@ set(lib
     Command.h 
 )
 
-enable_testing()
-
 add_library(mylib ${lib}) 
 target_include_directories(mylib PUBLIC hiredis/)
 target_link_libraries(mylib PUBLIC hiredis)
 target_link_directories(mylib PUBLIC hiredis/)
 
-add_executable(${PROJECT_NAME} test.cpp )
+add_executable(MyTest test.cpp )
 
 add_subdirectory(hiredis)
 add_subdirectory(googletest)
 
-target_link_libraries(${PROJECT_NAME} PUBLIC mylib PUBLIC gtest_main)
+target_link_libraries(MyTest PUBLIC mylib PUBLIC gtest_main)
 
-include(GoogleTest)
-gtest_discover_tests(${PROJECT_NAME})
+if(TEST)
+    enable_testing()
+    include(GoogleTest)
+    gtest_discover_tests(MyTest)
+endif()
 
+set (CMAKE_MODULE_PATH ${PROJECT_SOURCE_DIR}/cmake)
 if(TEST_COVERAGE)
+    message("YAY....")
     set(CMAKE_MODULE_PATH ${PROJECT_SOURCE_DIR}/cmake)
     include(CodeCoverage)
     append_coverage_compiler_flags()
     set(CMAKE_CXX_FLAGS  "${CMAKE_CXX_FLAGS} -O0")
     set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -O0")
-
-
+    set(GCOVR_PATH "/home/ali/.local/bin/gcovr")
+    setup_target_for_coverage_gcovr_html(
+            NAME TestCoverage
+            EXECUTABLE test.cpp
+            DEPENDENCIES mylib 
+    )
 endif()
 
 
