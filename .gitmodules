@@ -1,9 +1,8 @@
 [submodule "hiredis"]
 	path = hiredis
 	url = https://github.com/redis/hiredis
-[submodule "googletest"]
-	path = googletest
-	url = https://github.com/google/googletest
-
 ignore = all
 
+[submodule "thirdparty/googletest"]
+	path = thirdparty/googletest
+	url = https://github.com/google/googletest.git
