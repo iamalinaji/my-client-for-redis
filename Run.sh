@@ -1,2 +1,2 @@
 #! /bin/sh 
-cd build ; ./myredisclient
+cd build ; ./MyTest

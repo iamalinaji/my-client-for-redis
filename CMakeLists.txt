@@ -19,9 +19,10 @@ target_link_directories(mylib PUBLIC hiredis/)
 add_executable(MyTest test.cpp )
 
 add_subdirectory(hiredis)
-add_subdirectory(googletest)
+add_subdirectory(third_party/googletest)
 
-target_link_libraries(MyTest PUBLIC mylib PUBLIC gtest_main)
+target_include_directories(MyTest PRIVATE third_party/googletest/googletest)
+target_link_libraries(MyTest PRIVATE mylib gtest gtest_main)   
 
 if(TEST)
     enable_testing()
@@ -39,9 +40,9 @@ if(TEST_COVERAGE)
     set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -O0")
     set(GCOVR_PATH "/home/ali/.local/bin/gcovr")
     setup_target_for_coverage_gcovr_html(
-            NAME TestCoverage
-            EXECUTABLE test.cpp
-            DEPENDENCIES mylib 
+        NAME TestCoverage
+        EXECUTABLE MyTest
+        DEPENDENCIES MyTest mylib gtest
     )
 endif()
 

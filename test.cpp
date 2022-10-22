@@ -1,6 +1,6 @@
 #include "Command.h"
 #include "Connection.h"
-#include <gtest/gtest.h>
+#include <include/gtest/gtest.h>
 #include <string>
 using namespace std;
 
@@ -58,8 +58,8 @@ TEST_F(MyConnection, insertiontest)
     EXPECT_EQ(cmd.GetKey(c,"Ali"),"Khafan");
 }
 
-int main(int argc, char **argv)
+/*int main(int argc, char **argv)
 {
     ::testing::InitGoogleTest(&argc, argv);
     return RUN_ALL_TESTS();
-}
+}*/
