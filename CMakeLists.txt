@@ -30,6 +30,12 @@ if(TEST)
     gtest_discover_tests(MyTest)
 endif()
 
+if(CTEST)
+    enable_testing()
+    include(CTest)
+    add_test(NAME MyTest COMMAND MyTest)
+endif()
+
 set (CMAKE_MODULE_PATH ${PROJECT_SOURCE_DIR}/cmake)
 if(TEST_COVERAGE)
     message("YAY....")

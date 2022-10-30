@@ -49,5 +49,15 @@ case $option in
 		cmake -S .. -DTEST=ON -G Ninja
 		ninja
 		;;
+	"ctest")
+		if [ ! -d "$DIR" ]; then
+			mkdir build
+		fi
+		cd build
+		cmake -S .. -DCTEST=ON 
+		cmake --build .
+		ctest
+		;;
+
 esac
 
